@@ -1,5 +1,11 @@
 package com.example.PayMer.repository;
 
-public interface TransactionRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.PayMe.model.Transaction;
+
+@Repository
+public interface TransactionRepository extends CrudRepository<Transaction, Long>{
 
 }
