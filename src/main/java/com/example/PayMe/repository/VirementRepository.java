@@ -12,5 +12,5 @@ import com.example.PayMe.model.Virement;
 public interface VirementRepository extends CrudRepository<Virement, Long>{
 
 	
-	List<Virement> findByUser(User user);
+	List<Virement> findAllByUser(User user);
 }

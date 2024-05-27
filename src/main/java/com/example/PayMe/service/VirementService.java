@@ -21,8 +21,10 @@ public class VirementService {
 	
 	public List<Virement> getVirementListByUserName(String userName) {
 		User user = userRepository.getUserByName(userName);
-		 List<Virement> virements = virementRepository.findByUser(user);		
+		 List<Virement> virements = virementRepository.findAllByUser(user);		
 		 return virements;
 	}
 
 }
+
+

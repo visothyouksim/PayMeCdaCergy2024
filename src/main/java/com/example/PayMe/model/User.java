@@ -32,4 +32,7 @@ public class User {
 	
 	@OneToMany(mappedBy ="sender")
 	private List<Transaction> listeTransaction;
+	
+	@OneToMany(mappedBy ="user")
+	private List<Virement> listeVirement;
 }
