@@ -2,6 +2,9 @@ package com.example.PayMe.model;
 
 import java.util.Date;
 
+import org.antlr.v4.runtime.misc.NotNull;
+
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,8 +23,10 @@ public class Virement {
 	
 	private Date date;
 	
+	
 	private float amount;
 	
+	//@Nonnull
 	private String label;
 
 	public Long getId() {

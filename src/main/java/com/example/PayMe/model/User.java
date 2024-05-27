@@ -35,4 +35,8 @@ public class User {
 	
 	@OneToMany(mappedBy ="user")
 	private List<Virement> listeVirement;
+	
+	public void changeAmount(float toAdd) {
+		this.balance += toAdd;
+	}
 }

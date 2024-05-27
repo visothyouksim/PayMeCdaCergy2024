@@ -25,6 +25,10 @@ public class VirementService {
 		 return virements;
 	}
 
+	public void save(Virement virement) {
+		virementRepository.save(virement);
+	}
+
 }
 
 
