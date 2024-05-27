@@ -28,8 +28,11 @@ public class VirementController {
 	}
 	
 	@PostMapping("/virements")
-	public String createVirement(Model model, Virement virement){ return null;}
+	public String createVirement(Model model, Virement virement){
+		return null;
+		}
 	//.Il faudra aller chercher dans le context le user connecté. 
+	
 	//.Il faudra créer et sauvegarger un objet de type virement avec les infos du formulaire. 
-	//.Il faudra éditer et sauvagerder l'amount du user.
+	//.Il faudra éditer et sauvegarder l'amount du user.
 }
