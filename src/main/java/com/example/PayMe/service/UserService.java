@@ -1,6 +1,9 @@
 package com.example.PayMe.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.example.PayMe.model.User;
@@ -19,6 +22,18 @@ public class UserService {
 	public void save(User user) {
 		userRepository.save(user);
 		
+	}
+	
+	/*public List<User> getContactListByUser(User user){
+		userRepository.f
+	}*/
+	
+	
+	
+	public User getConnectedUser() {
+		String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+		User user = userRepository.getUserByName(userName);
+		return user;
 	}
 
 }

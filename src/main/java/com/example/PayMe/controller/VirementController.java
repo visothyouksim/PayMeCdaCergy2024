@@ -34,15 +34,16 @@ public class VirementController {
 	
 	@PostMapping("/virements")
 	public String createVirement(Model model, Virement virement){
-		String userName = SecurityContextHolder.getContext().getAuthentication().getName();
-		User user = userService.getUserByName(userName);
+
+		User user = userService.getConnectedUser();
+		
 		virement.setUser(user);
 		virement.setDate(new Date());
 		virementService.save(virement);
 		user.changeAmount(virement.getAmount());
 		userService.save(user);
 		
-		model.addAttribute("virements", virementService.getVirementListByUserName(userName));
+		model.addAttribute("virements", virementService.getVirementListByUserName(user.getName()));
 		model.addAttribute("virement", new Virement());
 		return "virementsPage";
 		}
