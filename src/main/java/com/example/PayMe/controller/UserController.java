@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.PayMe.model.User;
 import com.example.PayMe.service.UserService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserController {
@@ -21,8 +22,6 @@ public class UserController {
 	public String getUserProfil(Model model) {
 		User user = userService.getConnectedUser();
 		model.addAttribute("listContact", user.getListContacts());
-		
-		
 		return "userProfil";
 	}
 	
@@ -41,7 +40,23 @@ public class UserController {
 
 		return "userProfil";
 	}
-	
+
+
+	@GetMapping("/admin")
+	public String getUsersAdmin(Model model, RedirectAttributes ra){
+		model.addAttribute("users", userService.getAllUser());
+		return "adminUsers";
+		/*String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
+		if(role.contains("ROLE_ADMIN")){
+			model.addAttribute("users", userService.getAllUser());
+			return "adminUsers" ;
+		}else{
+			ra.addFlashAttribute("error", "vous n'etes pas admin");
+			return "home";
+		}*/
+
+
+	}
 	
 	
 }

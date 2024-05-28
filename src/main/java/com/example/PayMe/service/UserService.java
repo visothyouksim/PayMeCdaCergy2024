@@ -27,7 +27,9 @@ public class UserService {
 	/*public List<User> getContactListByUser(User user){
 		userRepository.f
 	}*/
-	
+	public List<User> getAllUser(){
+		return (List<User>) userRepository.findAll();
+	}
 	
 	
 	public User getConnectedUser() {
